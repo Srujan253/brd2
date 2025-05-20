@@ -372,4 +372,129 @@ body {
     .carousel-item img {
         height: 200px;
     }
+}
+
+/* Games Section */
+.games {
+    padding: 5rem 2rem;
+    background-color: #fffbe7;
+}
+.games h2 {
+    text-align: center;
+    color: #ff6b6b;
+    margin-bottom: 2rem;
+}
+.game-nickname {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+#ttt-nickname {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+#ttt-start {
+    padding: 0.5rem 1.5rem;
+    background: #4ecdc4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+#ttt-start:hover {
+    background: #45b7d1;
+}
+.ttt-board {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 8px;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+}
+.ttt-cell {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 2px solid #ffd93d;
+    border-radius: 8px;
+    font-size: 2rem;
+    color: #ff6b6b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.ttt-cell:hover {
+    background: #fff3c4;
+}
+#ttt-status {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+#ttt-restart {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+#ttt-restart:hover {
+    background: #ff5252;
+}
+.ttt-leaderboard {
+    max-width: 350px;
+    margin: 2rem auto 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 1rem 1.5rem;
+}
+.ttt-leaderboard h3 {
+    text-align: center;
+    color: #4ecdc4;
+    margin-bottom: 1rem;
+}
+#ttt-leaderboard-list {
+    list-style: none;
+    padding: 0;
+}
+#ttt-leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+#ttt-leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .ttt-board {
+        grid-template-columns: repeat(3, 40px);
+        grid-template-rows: repeat(3, 40px);
+        gap: 5px;
+    }
+    .ttt-cell {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    .ttt-leaderboard {
+        padding: 0.5rem 0.5rem;
+    }
 } 

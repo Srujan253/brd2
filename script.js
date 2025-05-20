@@ -189,4 +189,113 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// =====================
+// Tic-Tac-Toe Game Logic
+// =====================
+const tttStartBtn = document.getElementById('ttt-start');
+const tttNicknameInput = document.getElementById('ttt-nickname');
+const tttGameSection = document.getElementById('ttt-game');
+const tttBoard = document.getElementById('ttt-board');
+const tttStatus = document.getElementById('ttt-status');
+const tttRestartBtn = document.getElementById('ttt-restart');
+const tttLeaderboardList = document.getElementById('ttt-leaderboard-list');
+
+let tttNickname = '';
+let tttBoardState = Array(9).fill('');
+let tttCurrentPlayer = 'X';
+let tttGameActive = false;
+let tttWinStreak = 0;
+
+function renderBoard() {
+    tttBoard.innerHTML = '';
+    tttBoardState.forEach((cell, idx) => {
+        const div = document.createElement('div');
+        div.className = 'ttt-cell';
+        div.textContent = cell;
+        div.addEventListener('click', () => handleCellClick(idx));
+        tttBoard.appendChild(div);
+    });
+}
+
+function handleCellClick(idx) {
+    if (!tttGameActive || tttBoardState[idx]) return;
+    tttBoardState[idx] = tttCurrentPlayer;
+    renderBoard();
+    if (checkWinner(tttCurrentPlayer)) {
+        tttStatus.textContent = `${tttNickname} (${tttCurrentPlayer}) wins!`;
+        updateStreak(tttNickname, true);
+        tttGameActive = false;
+        tttRestartBtn.style.display = 'block';
+    } else if (tttBoardState.every(cell => cell)) {
+        tttStatus.textContent = `It's a draw!`;
+        updateStreak(tttNickname, false);
+        tttGameActive = false;
+        tttRestartBtn.style.display = 'block';
+    } else {
+        tttCurrentPlayer = tttCurrentPlayer === 'X' ? 'O' : 'X';
+        tttStatus.textContent = `Turn: ${tttCurrentPlayer}`;
+    }
+}
+
+function checkWinner(player) {
+    const wins = [
+        [0,1,2],[3,4,5],[6,7,8], // rows
+        [0,3,6],[1,4,7],[2,5,8], // cols
+        [0,4,8],[2,4,6]          // diags
+    ];
+    return wins.some(pattern => pattern.every(idx => tttBoardState[idx] === player));
+}
+
+function startGame() {
+    tttNickname = tttNicknameInput.value.trim() || 'Player';
+    tttGameSection.style.display = 'block';
+    tttNicknameInput.disabled = true;
+    tttStartBtn.disabled = true;
+    tttRestartBtn.style.display = 'none';
+    tttBoardState = Array(9).fill('');
+    tttCurrentPlayer = 'X';
+    tttGameActive = true;
+    tttStatus.textContent = `Turn: ${tttCurrentPlayer}`;
+    renderBoard();
+    loadLeaderboard();
+}
+
+tttStartBtn.addEventListener('click', startGame);
+tttRestartBtn.addEventListener('click', () => {
+    tttBoardState = Array(9).fill('');
+    tttCurrentPlayer = 'X';
+    tttGameActive = true;
+    tttStatus.textContent = `Turn: ${tttCurrentPlayer}`;
+    tttRestartBtn.style.display = 'none';
+    renderBoard();
+});
+
+function updateStreak(nickname, won) {
+    let leaderboard = JSON.parse(localStorage.getItem('tttLeaderboard')) || {};
+    if (!leaderboard[nickname]) leaderboard[nickname] = 0;
+    if (won) {
+        leaderboard[nickname] += 1;
+    } else {
+        leaderboard[nickname] = 0;
+    }
+    localStorage.setItem('tttLeaderboard', JSON.stringify(leaderboard));
+    loadLeaderboard();
+}
+
+function loadLeaderboard() {
+    let leaderboard = JSON.parse(localStorage.getItem('tttLeaderboard')) || {};
+    let sorted = Object.entries(leaderboard)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+    tttLeaderboardList.innerHTML = '';
+    sorted.forEach(([name, streak], idx) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${idx + 1}. ${name}</span><span>${streak} win${streak === 1 ? '' : 's'}</span>`;
+        tttLeaderboardList.appendChild(li);
+    });
+}
+
+// Show leaderboard on page load
+loadLeaderboard(); 
