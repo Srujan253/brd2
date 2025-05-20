@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">Birthday Wishes</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#wishes">Wishes</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Countdown -->
+    <section id="home" class="hero">
+        <div class="countdown-container">
+            <h1>Birthday Countdown</h1>
+            <div id="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Your friend is an amazing person who brings joy and laughter to everyone around them. They have a heart of gold and a smile that lights up any room.</p>
+                <p>Their passion for life and kindness towards others makes them truly special.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Carousel -->
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/img1.jpg" alt="Memory 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/img2.jpg" alt="Memory 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/img3.jpg" alt="Memory 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/img4.jpg" alt="Memory 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/img5.jpg" alt="Memory 5">
+                </div>
+            </div>
+            <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Birthday Wishes Section -->
+    <section id="wishes" class="wishes">
+        <h2>Send Your Wishes</h2>
+        <div class="wishes-container">
+            <form id="wish-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="message" placeholder="Your Birthday Wish" required></textarea>
+                <button type="submit">Send Wish</button>
+            </form>
+            <div id="wishes-list" class="wishes-list">
+                <!-- Wishes will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: srujanhm135@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1DGfJ2RPw1/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/srujan_kulal18"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Srujan253"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Srujan H M. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

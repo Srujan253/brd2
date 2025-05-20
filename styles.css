@@ -1,0 +1,375 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6b6b;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    padding-top: 60px;
+}
+
+.countdown-container {
+    text-align: center;
+    color: white;
+}
+
+.countdown-container h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+#countdown {
+    display: flex;
+    gap: 2rem;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.countdown-item span {
+    display: block;
+}
+
+.countdown-item span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* About Section */
+.about {
+    padding: 5rem 2rem;
+    background-color: #f9f9f9;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 5rem 2rem;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Wishes Section */
+.wishes {
+    padding: 5rem 2rem;
+    background-color: #f9f9f9;
+}
+
+.wishes h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+}
+
+.wishes-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#wish-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#wish-form input,
+#wish-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#wish-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#wish-form button {
+    padding: 0.8rem;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#wish-form button:hover {
+    background-color: #ff5252;
+}
+
+.wishes-list {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Wish Card Styles */
+.wish-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.wish-card h3 {
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+}
+
+.wish-card p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.wish-card small {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.delete-wish {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.delete-wish:hover {
+    background-color: #ff5252;
+}
+
+.auth-button {
+    transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff6b6b;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .countdown-container h1 {
+        font-size: 2rem;
+    }
+
+    #countdown {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 1.8rem;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-container h1 {
+        font-size: 1.5rem;
+    }
+
+    #countdown {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 1.5rem;
+    }
+
+    .carousel-item img {
+        height: 200px;
+    }
+} 
